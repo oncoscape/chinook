@@ -1,7 +1,7 @@
 # Chinook
 
 Chinook is a  protocol for exchanging simple 4-field JSON messages over websockets,
-between Javascript in the browser, and computational servers (in R and Python), 
+passing back and forth between Javascript in the browser, and computational servers (in R and Python), 
 to facilitate the construction of loosely-coupled, highly interactive webapps.
 Our main focus in computational biology, bioinformatics, and solid tumor translational
 research [(see STTR)](http://www.sttrcancer.org); the methods presented here
@@ -10,9 +10,10 @@ can easily be applied in other fields.
 Our protocol gets its name from the [Chinook
 Jargon](http://en.wikipedia.org/wiki/Chinook_Jargon), a very simple
 trading language - a pidgin or contact language - used in the Pacific
-Northwest for many centuries.  Some report that the last Chinook speakers lived in
-Seattle in the 1930's.  As a project based in Seattle at the Fred Hutchinson
-Cancer Research Center, this association with indigenous native peoples
+Northwest for many centuries.  Some report Chinook was spoken in Seattle as
+recently as the 1930's.   As a project based in Seattle at the Fred Hutchinson
+Cancer Research Center, close by the Salish Sea, and with native influence
+visible throughout the city, this association with indigenous native peoples
 has particular resonance. 
 
 Chinook had a vocabulary of about 400 words, and a very simple grammar.
