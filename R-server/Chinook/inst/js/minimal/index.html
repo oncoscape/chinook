@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>The Minimal Chinook</title>
+    <script src="http://oncoscape.sttrcancer.org/oncoscape/js/jquery-2.1.1.js"></script>
+
+<style>
+#outgoingMessageDiv, #arrivingMessageDiv{
+  width: 600px;
+  height: 100px;
+  border: 1px solid #aaa;
+  border-radius: 5px;
+  padding: 20px;
+  margin: 20px;
+  margin-top: 3px;
+  font-szie: 14px;
+  }
+  
+</style>
+
+</head>
+
+<script>
+
+//----------------------------------------------------------------------------------------------------
+var dispatchOptions = {};
+var webSocketURL;
+var websocket;
+var MA, MO;
+//----------------------------------------------------------------------------------------------------
+function send(msg)
+{
+   console.log("about to websocket.send cmd: " + msg.cmd);
+   websocket.send(JSON.stringify(msg));
+   
+} // send
+//--------------------------------------------------------------------------------
+addMessageHandler = function(cmd, func)
+{
+   if(cmd in dispatchOptions){
+      alert("javascript message handler for '" +  cmd + " already set");
+      }
+   else{
+      dispatchOptions[cmd] = func
+      }
+
+} // addMessageHandler
+//----------------------------------------------------------------------------------------------------
+dispatchMessage = function(msg)
+{
+   console.log("--- webapp, index.common, dispatchMessage: " + msg.cmd);
+
+   if (dispatchOptions[msg.cmd])
+       dispatchOptions[msg.cmd](msg)
+   else
+      console.log("unrecognized socket request: " + msg.cmd);
+
+} // dispatchMessage
+//--------------------------------------------------------------------------------------------------
+function ready(msg)
+{
+   console.log("got ready? msg from server");
+   return_msg = {cmd: msg.callback, status: "success", callback: "", payload: "ready"};
+   send(return_msg);
+
+} // ready
+//----------------------------------------------------------------------------------------------------
+function queryServerStatus()
+{
+   msg = {     cmd: "getServerStatus",
+            status: "request",
+          callback: "displayServerStatus",
+           payload: ""};
+
+   MO = msg;
+   $("#outgoingMessageDiv").text(JSON.stringify(msg));
+
+   send(msg);
+
+} // queryServerStatus
+//----------------------------------------------------------------------------------------------------
+function displayServerStatus(msg)
+{
+   MA = msg;
+   $("#arrivingMessageDiv").text(JSON.stringify(msg));
+   console.log(msg.payload);
+
+} // displayServerStatus
+//----------------------------------------------------------------------------------------------------
+$(document).ready(function() {
+
+   console.log("==== document ready");
+
+   console.log("constructing ws uri, with window.location.href at '" + window.location.href);
+   websocketURL = window.location.href.replace("http://", "ws://");
+   console.log("-- about to construct websocket at " + websocketURL);
+   websocket = new WebSocket(websocketURL);                     
+
+
+   websocket.onmessage = function(msg) {
+      msg = JSON.parse(msg.data);
+      console.log("=== ws.onmessage");
+      console.log(msg);
+      dispatchMessage(msg);
+      } // onmessage
+
+   $("#getServerStatusButton").click(queryServerStatus);
+   addMessageHandler("ready", ready);
+   addMessageHandler("displayServerStatus", displayServerStatus);
+
+}) // document.ready
+//----------------------------------------------------------------------------------------------------
+</script>
+
+<body>
+<h2 style="margin: 20px"> Minimal Chinook</h2>
+<button id="getServerStatusButton" style="margin: 20px; font-size: 18px;">Get Server Status</button>
+<h4 style="margin-left: 40px">Outgoing JSON Message</h4>
+<div id="outgoingMessageDiv"></div>
+<br><br>
+<h4 style="margin-left: 40px">Incoming JSON Message</h4>
+<div id="arrivingMessageDiv"></div>
+</body>
+</html>

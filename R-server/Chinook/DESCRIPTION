@@ -1,0 +1,15 @@
+Package: Chinook
+Type: Package
+Title: Chinook: a trading (pidgin) language for exploratory data analysis
+Version: 0.99.0
+Date: 2015-03-30
+Author: Paul Shannon
+Maintainer:  <pshannon@fhcrc.org>
+Depends: R (>= 2.13.0), jsonlite, httpuv, SttrDataPackage, survival, base64enc
+Suggests: RUnit, DEMOdz, TCGAgbm
+Description:  
+License: GPL
+LazyLoad: yes
+Collate: Chinook.R
+
+
