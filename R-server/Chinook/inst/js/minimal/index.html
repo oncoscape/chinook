@@ -5,13 +5,15 @@
     <script src="http://oncoscape.sttrcancer.org/oncoscape/js/jquery-2.1.1.js"></script>
 
 <style>
-#outgoingMessageDiv, #arrivingMessageDiv{
+#outgoingMessageDiv, #arrivingMessageDiv, #explanationDiv {
   width: 600px;
-  height: 100px;
+  height: 50px;
   border: 1px solid #aaa;
   border-radius: 5px;
   padding: 20px;
-  margin: 20px;
+  margin-bottom: 3px;
+  margin-left: 20px;
+  margin-right: 20px;
   margin-top: 3px;
   font-szie: 14px;
   }
@@ -106,10 +108,26 @@ $(document).ready(function() {
 <body>
 <h2 style="margin: 20px"> Minimal Chinook</h2>
 <button id="getServerStatusButton" style="margin: 20px; font-size: 18px;">Get Server Status</button>
-<h4 style="margin-left: 40px">Outgoing JSON Message</h4>
+<h4 style="margin-left: 40px">JSON message sent from browser to server: </h4>
 <div id="outgoingMessageDiv" style="color: red"></div>
 <br><br>
-<h4 style="margin-left: 40px">Incoming JSON Message</h4>
+<h4 style="margin-left: 40px">JSON response sent from server to browser</h4>
 <div id="arrivingMessageDiv" style="color: blue"></div>
+<div id="explanationDiv" style="height: 300px; margin-top: 20px;"> Some things to note:
+<ul>
+    <li> The outgoing message (the top one) identifies itself as a <b>request</b> message
+    <p><li> Its <b>cmd</b> tells the receiver what action it should perform; the receiver 
+         (in this case, the server) will invoke whatever function it has been configured to 
+         run upon arrival of that command.
+    <p><li> The browser's request has no <b>payload</b> which, by our convention, is 
+         represented by an empty string.
+    <p><li> The server's response has three named fields in its payload: <i>currentTime</i>, 
+         <i>serverVersion</i>, and <i>registeredHandlers</i>.  The last field is a count 
+         of the number of callback functions the handler currently has configured and 
+         ready to call.  For the purposes of this simple demo, the server is configured 
+         to recognize and respond to olny the "getServerStatus" request message.
+    <p><li> The server's response has an empty <b>callback</b> field, and a <b>status</b> of success.
+</ul>
+</div>
 </body>
 </html>
