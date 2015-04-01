@@ -34,6 +34,8 @@ messages between powerful computational services and visualization
 tools.
 
 # Loosely Coupled Computational Services and Browser Visualizations
-
+### A Common Situation 
 ![Uncoupled](/images/legoBlocksUnconnected.png)
+
+### Oncoscape:  the Chinook Solution
 ![Coupled](/images/legoBlocksConnected.png)
