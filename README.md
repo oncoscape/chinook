@@ -34,8 +34,8 @@ messages between powerful computational services and visualization
 tools.
 
 # Loosely Coupled Computational Services and Browser Visualizations
-### A Common Situation 
+#### A Common Situation (excellent tools, not available to the non-expert programmer)
 ![Uncoupled](/images/legoBlocksUnconnected.png)
 
-### Oncoscape, using the Chinook Protocol
+#### Oncoscape (using the Chinook Protocol)
 ![Coupled](/images/legoBlocksConnected.png)
