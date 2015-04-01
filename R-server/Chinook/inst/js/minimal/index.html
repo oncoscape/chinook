@@ -26,7 +26,6 @@
 var dispatchOptions = {};
 var webSocketURL;
 var websocket;
-var MA, MO;
 //----------------------------------------------------------------------------------------------------
 function send(msg)
 {
@@ -72,7 +71,6 @@ function queryServerStatus()
           callback: "displayServerStatus",
            payload: ""};
 
-   MO = msg;
    $("#outgoingMessageDiv").text(JSON.stringify(msg));
 
    send(msg);
@@ -81,21 +79,14 @@ function queryServerStatus()
 //----------------------------------------------------------------------------------------------------
 function displayServerStatus(msg)
 {
-   MA = msg;
    $("#arrivingMessageDiv").text(JSON.stringify(msg));
-   console.log(msg.payload);
 
 } // displayServerStatus
 //----------------------------------------------------------------------------------------------------
 $(document).ready(function() {
 
-   console.log("==== document ready");
-
-   console.log("constructing ws uri, with window.location.href at '" + window.location.href);
    websocketURL = window.location.href.replace("http://", "ws://");
-   console.log("-- about to construct websocket at " + websocketURL);
    websocket = new WebSocket(websocketURL);                     
-
 
    websocket.onmessage = function(msg) {
       msg = JSON.parse(msg.data);
@@ -116,9 +107,9 @@ $(document).ready(function() {
 <h2 style="margin: 20px"> Minimal Chinook</h2>
 <button id="getServerStatusButton" style="margin: 20px; font-size: 18px;">Get Server Status</button>
 <h4 style="margin-left: 40px">Outgoing JSON Message</h4>
-<div id="outgoingMessageDiv"></div>
+<div id="outgoingMessageDiv" style="color: red"></div>
 <br><br>
 <h4 style="margin-left: 40px">Incoming JSON Message</h4>
-<div id="arrivingMessageDiv"></div>
+<div id="arrivingMessageDiv" style="color: blue"></div>
 </body>
 </html>
