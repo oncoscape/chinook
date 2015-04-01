@@ -32,3 +32,8 @@ small number of shared words. Similarly, we seek to create an
 extensive computational environment based upon the exchange of simple
 messages between powerful computational services and visualization
 tools.
+
+# Loosely Coupled Computational Services and Browser Visualizations
+
+![Uncoupled](/images/legoBlocksUnconnected.png)
+![Coupled](/images/legoBlocksConnected.png)
