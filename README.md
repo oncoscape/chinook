@@ -5,7 +5,7 @@ passing back and forth between Javascript in the browser, and computational serv
 (typically written in R and Python).  Chinook thus facilitates
 the construction of loosely-coupled, highly interactive webapps.
 Our main focus lies in computational biology, bioinformatics, and solid tumor translational
-research [(see STTR)](http://www.sttrcancer.org).  Tthe methods presented here, however,
+research [(see STTR)](http://www.sttrcancer.org).  The methods presented here, however,
 can easily be applied in other fields.
 
 Our protocol gets its name from the [Chinook
