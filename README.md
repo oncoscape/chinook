@@ -1,8 +1,8 @@
 # chinook
 
 A protocol for exchanging simple 4-field JSON messages over websockets,
-between Javascaript in the browser, and computational servers (in R and Python), 
-in order to build loosely-coupled, highly interactive webapps.
+between Javascript in the browser, and computational servers (in R and Python), 
+to build loosely-coupled, highly interactive webapps.
 
 Our protocol gets its name from the [Chinook
 Jargon](http://en.wikipedia.org/wiki/Chinook_Jargon), a very simple
@@ -19,8 +19,8 @@ entities as simply as possible.  Economies were connected in the
 historical case.  In our case, we wish to connect problem domains
 (genomic analysis, network biology, clinical histories), and
 computational biology and visualization tools into user-friendly
-exploratory webapps..  Chinook speakers developed a broad and
+exploratory webapps.  Chinook speakers developed a broad and
 extensive collaborative economy using only a small number of shared
-words. Similarly, we are creating an extensive computational
-environment based upon the exchange simple messages between powerful
+words. Similarly, we seek to create an extensive computational
+environment based upon the exchange of simple messages between powerful
 computational services and visualization tools.
