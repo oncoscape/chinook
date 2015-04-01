@@ -4,8 +4,8 @@ Chinook is a  protocol for exchanging simple, 4-field JSON messages over websock
 passing back and forth between Javascript in the browser, and computational servers 
 (typically written in R and Python).  Chinook thus facilitates
 the construction of loosely-coupled, highly interactive webapps.
-Our main focus in computational biology, bioinformatics, and solid tumor translational
-research [(see STTR)](http://www.sttrcancer.org); the methods presented here
+Our main focus lies in computational biology, bioinformatics, and solid tumor translational
+research [(see STTR)](http://www.sttrcancer.org).  Tthe methods presented here, however,
 can easily be applied in other fields.
 
 Our protocol gets its name from the [Chinook
