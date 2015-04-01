@@ -1,4 +1,4 @@
-# chinook
+# Chinook
 
 Chinook is a  protocol for exchanging simple 4-field JSON messages over websockets,
 between Javascript in the browser, and computational servers (in R and Python), 
@@ -37,5 +37,5 @@ tools.
 ### A Common Situation 
 ![Uncoupled](/images/legoBlocksUnconnected.png)
 
-### Oncoscape:  the Chinook Solution
+### Oncoscape, using the Chinook Protocol
 ![Coupled](/images/legoBlocksConnected.png)
