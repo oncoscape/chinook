@@ -16,10 +16,11 @@ Cancer Research Center, close by the Salish Sea, and with native influence
 visible throughout the city, this association with indigenous native peoples
 has particular resonance. 
 
-Chinook had a vocabulary of about 400 words, and a very simple grammar.
-It provided a common jargon, a shared "little language", allowing speakers 
-of many Amerindian languages to conduct extensive trade with each other.
-A few French and English words were added in the nineteenth century.
+Chinook had a vocabulary of about 400 words, and a very simple
+grammar.  It provided a common jargon, a shared "little language",
+allowing speakers of many different (and sometimes quite unrelated)
+Amerindian languages to conduct extensive trade with each other.  A
+few French and English words were added in the nineteenth century.
 
 Chinook is a model and inspiration for us because we face a similar
 situation: like Chinook speakers, we need to connect rich and complex
@@ -34,8 +35,8 @@ extensive computational environment based upon the exchange of simple
 messages between powerful computational services and visualization
 tools.
 
-# Loosely Coupled Computational Services and Browser Visualizations
-#### A Common Situation (excellent tools, unconnected not available to the non-expert programmer)
+# Putting the Chinook Protocol to Work: Loosely Coupled Computational Services and Browser Visualizations
+#### A Common Situation (excellent tools, unconnected,  not available to the non-expert programmer)
 ![Uncoupled](/images/legoBlocksUnconnected.png)
 
 #### Oncoscape (using the Chinook Protocol)
