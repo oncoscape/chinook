@@ -1,6 +1,6 @@
 # Chinook
 
-[(quick start for programmers)](https://github.com/oncoscape/chinook/wiki)
+ * [(quick start for programmers)](https://github.com/oncoscape/chinook/wiki)
 
 Chinook is a  protocol for exchanging simple, 4-field JSON messages over websockets,
 passing back and forth between Javascript in the browser, and computational servers 
