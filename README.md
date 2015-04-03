@@ -11,10 +11,5 @@ The methods presented here, however, can easily be applied in other fields.
 
  * [Quick start for programmers](https://github.com/oncoscape/chinook/wiki#buildAndRun)
  * [Chinook etymology](https://github.com/oncoscape/chinook/wiki#etymology)
+ * [Visual metaphor: lego blocks](https://github.com/oncoscape/chinook/wiki#legoBlocks)
 
-# Putting the Chinook Protocol to Work: Loosely Coupled Computational Services and Browser Visualizations
-#### A Common Situation (excellent tools, unconnected,  not available to the non-expert programmer)
-![Uncoupled](/images/legoBlocksUnconnected.png)
-
-#### Oncoscape (using the Chinook Protocol)
-![Coupled](/images/legoBlocksConnected.png)
