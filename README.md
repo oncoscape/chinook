@@ -12,4 +12,3 @@ The methods presented here, however, can easily be applied in other fields.
 
  * [Quick start for programmers](https://github.com/oncoscape/chinook/wiki#buildAndRun)
  * [Chinook etymology](https://github.com/oncoscape/chinook/wiki#etymology)
-
