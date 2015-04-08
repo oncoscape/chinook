@@ -1,6 +1,6 @@
 library(Chinook)
-PORT.RANGE = 5129:5134
-scriptDir <- "minimal"
-chinook <- Chinook(portRange=PORT.RANGE, scriptDir=scriptDir, runBrowser=TRUE, quiet=FALSE)
+PORT = 5127
+browserScript <- system.file(package="Chinook", "js", "minimal", "index.html")
+chinook <- Chinook(port=PORT, browserScript, runBrowser=TRUE, quiet=FALSE)
 run(chinook)
 
