@@ -15,26 +15,25 @@ printf <- function(...) print(noquote(sprintf(...)))
 dispatchMap <- new.env(parent=emptyenv())
 #---------------------------------------------------------------------------------------------------
 # class constructor
-Chinook = function(portRange, scriptDir, runBrowser=FALSE, quiet=FALSE)
+Chinook = function(port, browserScript, runBrowser=FALSE, quiet=FALSE)
 {
-   actualPort <- portRange[1]
+   if(is.na(browserScript))
+      browserScript <- system.file(package="Chinook", "js", "empty", "index.html")
+   
 
-   if(is.na(scriptDir))
-      browserFile <- system.file(package="Chinook", "js", "minimal", "index.html")
-   else
-      browserFile <- system.file(package="Chinook", "js", scriptDir, "index.html")
+   #actualPort <- port[1]
 
    if(!quiet)
-      message(sprintf("Chinook ctor, browserFile: %s", browserFile))
+      message(sprintf("Chinook ctor, browserScript: %s", browserScript))
    
-   if(!file.exists(browserFile)){
-      msg <- sprintf("Chinook constructor error: cannot find browserFile.");
-      msg <- paste(msg, sprintf("  looked for '%s'", browserFile));
+   if(!file.exists(browserScript)){
+      msg <- sprintf("Chinook constructor error: cannot find browserScript.");
+      msg <- paste(msg, sprintf("  looked for '%s'", browserScript));
       stop(msg);
       }
 
   host <- "localhost"
-  uri <- sprintf("http://%s:%s", host, actualPort)
+  uri <- sprintf("http://%s:%s", host, port)
 
   if(runBrowser){
      if(!quiet)
@@ -43,9 +42,11 @@ Chinook = function(portRange, scriptDir, runBrowser=FALSE, quiet=FALSE)
      }
 
   wsCon <- new.env(parent=emptyenv())
-  wsCon <- .setupWebSocketHandlers(wsCon, browserFile)
+  wsCon <- .setupWebSocketHandlers(wsCon, browserScript)
 
-  obj <- .Chinook(websocketConnection=wsCon, port=as.integer(actualPort))
+  #browser()
+  #obj <- .Chinook(websocketConnection=wsCon, port=as.integer(actualPort))
+  obj <- .Chinook(websocketConnection=wsCon, port=as.integer(port))
 
   obj@websocketConnection <- wsCon
    
@@ -56,40 +57,11 @@ Chinook = function(portRange, scriptDir, runBrowser=FALSE, quiet=FALSE)
 setMethod("show", "Chinook",
 
   function(obj) {
-    s <- sprintf("Chinook server running on port %d", port)
-    cat(s)
+    s <- sprintf("Chinook server running on port %d", port(obj))
+    cat(paste(s, "\n", sep=""))
     })
 
 #---------------------------------------------------------------------------------------------------
-.startServerOnFirstAvailableLocalHostPort <- function(portRange, wsCon)
-{
-   done <- FALSE
-
-   port <- portRange[1]
-   wsID <- NULL
-   
-   while(!done){
-     if(port > max(portRange))
-        done <- TRUE
-     else
-        printf("Chinook trying port %d", port)
-        wsID <- tryCatch(startServer("0.0.0.0", port, wsCon),
-                         error=function(m){sprintf("port not available: %d", port)})
-     if(.validWebSocketID(wsID))
-        done <- TRUE
-     else
-        port <- port + 1;
-     } # while
-
-   actualPort <- NULL
-   
-   if(.validWebSocketID(wsID))
-      actualPort <- port
-
-   list(wsID=wsID, port=actualPort)
-
-} # .startServerOnFirstAvailableLocalHostPort
-#----------------------------------------------------------------------------------------------------
 .validWebSocketID <- function(candidate)
 {
    if(length(grep("not available", candidate)) == 1)
@@ -108,7 +80,7 @@ toJSON <- function(..., auto_unbox = TRUE)
   jsonlite::toJSON(..., auto_unbox = auto_unbox)
 }
 #----------------------------------------------------------------------------------------------------
-.setupWebSocketHandlers <- function(wsCon, browserFile)
+.setupWebSocketHandlers <- function(wsCon, browserScript)
 {
    wsCon$open <- FALSE
    wsCon$ws <- NULL
@@ -121,7 +93,7 @@ toJSON <- function(..., auto_unbox = TRUE)
      list(
        status = 200L,
        headers = list('Content-Type' = 'text/html'),
-       body = c(file=browserFile))
+       body = c(file=browserScript))
        }
 
       # called whenever a websocket connection is opened
@@ -156,7 +128,7 @@ toJSON <- function(..., auto_unbox = TRUE)
 #--------------------------------------------------------------------------------
 .version <- function()
 {
-   sessionInfo()$otherPkgs$OncoDev14$Version
+   sessionInfo()$otherPkgs$Chinook$Version
 
 } # .version
 #--------------------------------------------------------------------------------
@@ -237,7 +209,7 @@ setMethod("port", "Chinook",
 #---------------------------------------------------------------------------------------------------
 addServerMessageHandler <- function(key, function.name)
 {
-   printf("OncoDev14 addRMessageHandler: '%s'", key);
+   printf("Chinook addRMessageHandler: '%s'", key);
    dispatchMap[[key]] <- function.name
     
 } # addServerMessageHandler
