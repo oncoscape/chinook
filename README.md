@@ -11,5 +11,5 @@ The methods presented here, however, can easily be applied in other fields.
 
 
  * [Quick start for programmers (a minimal demo)](https://github.com/oncoscape/chinook/wiki/Build-and-Run-the-Simplest-Chinook-Demo)
- * [ModelMPG: a 2-tab jQuery/d3/R exploration of the mtcars dataset](https://github.com/oncoscape/chinook/wiki/mtcars)
- * [Chinook etymology](https://github.com/oncoscape/chinook/wiki/Chinook-Etymology)
+ * [ModelMPG: a 2-tab jQuery/d3/R exploration of the mtcars dataset](https://github.com/oncoscape/chinook/wiki/Explore--a-classic-R-dataset:--mtcars)
+ * [Chinook etymology (why we chose this name)](https://github.com/oncoscape/chinook/wiki/Chinook-Etymology)
