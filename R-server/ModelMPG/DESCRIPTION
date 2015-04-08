@@ -1,8 +1,8 @@
 Package: ModelMPG
 Type: Package
 Title: Model Miles per Gallon
-Version: 0.99.0
-Date: 2015-04-06
+Version: 0.99.1
+Date: 2015-04-08
 Author: Paul Shannon
 Maintainer:  <pshannon@fhcrc.org>
 Depends: R (>= 3.1.0), jsonlite, httpuv, Chinook

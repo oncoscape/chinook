@@ -1,9 +1,7 @@
 import sys
 from websocket import create_connection
 from json import *
-ws = create_connection("ws://localhost:5127")
-
-
+ws = create_connection("ws://localhost:11001")
 #------------------------------------------------------------------------------------------------------------------------
 def runTests():
 
