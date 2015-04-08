@@ -1,0 +1,16 @@
+a simple python websocket client sends chinook (4-field JSON) messages to a running ModelMPG server.
+the server must be running, and listening on the same port which the python script is talking,
+currently 5129 on localhost -- the same port used if you run
+
+     R -f ../../../runModelMPG.R
+
+library(ModelMPG)
+PORT = 5129
+browserScript <- system.file(package="ModelMPG", "js", "twoTabsSelfContained", "index.html")
+modelMPG <- ModelMPG(port=PORT, browserScript, runBrowser=TRUE, quiet=FALSE)
+run(modelMPG)
+
+once this server is running, then from the shell type simply:
+
+  python test.py
+

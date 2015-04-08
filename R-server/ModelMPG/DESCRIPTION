@@ -1,0 +1,14 @@
+Package: ModelMPG
+Type: Package
+Title: Model Miles per Gallon
+Version: 0.99.0
+Date: 2015-04-06
+Author: Paul Shannon
+Maintainer:  <pshannon@fhcrc.org>
+Depends: R (>= 3.1.0), jsonlite, httpuv, Chinook
+Description: A simple Chinook subclass demonstrating browser access to lm and mtcars
+License: GPL
+LazyLoad: yes
+Collate: ModelMPG.R
+
+
