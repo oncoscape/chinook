@@ -19,9 +19,6 @@ Chinook = function(port, browserScript, runBrowser=FALSE, quiet=FALSE)
 {
    if(is.na(browserScript))
       browserScript <- system.file(package="Chinook", "js", "empty", "index.html")
-   
-
-   #actualPort <- port[1]
 
    if(!quiet)
       message(sprintf("Chinook ctor, browserScript: %s", browserScript))
@@ -98,7 +95,6 @@ toJSON <- function(..., auto_unbox = TRUE)
 
       # called whenever a websocket connection is opened
    wsCon$onWSOpen = function(ws) {   
-      printf("---- chinook wsCon$onWSOpen");
       wsCon$ws <- ws
       ws$onMessage(function(binary, rawMessage) {
          message <- as.list(fromJSON(rawMessage))
@@ -113,10 +109,6 @@ toJSON <- function(..., auto_unbox = TRUE)
             return;
             }
          cmd <- message$cmd
-         printf("Chinook:onMessage, raw ");
-         print(rawMessage)
-         printf("Chinook:onMessage, cooked ");
-         print(message)
          dispatchMessage(ws, message);
          }) # onMessage
        wsCon$open <- TRUE
@@ -139,12 +131,10 @@ dispatchMessage <- function(WS, msg)
     return.msg$cmd <- msg$callback
     return.msg$callback <- ""
     package.version <- .version()
-    printf("Chinook.R %s dispatchMessage detected error", package.version);
     return.msg$status <- "error";
     error.msg <- sprintf("Chinook (version %s) exception!  %s", package.version, cond);
     msg.as.text <- paste(as.character(msg), collapse=";  ")
     msg.full <- sprintf("%s. incoming msg: %s", error.msg, msg.as.text)
-    printf("--- msg.full: %s", msg.full);
     return.msg$payload <- msg.full
     WS$send(toJSON(return.msg))
     }
@@ -209,21 +199,17 @@ setMethod("port", "Chinook",
 #---------------------------------------------------------------------------------------------------
 addServerMessageHandler <- function(key, function.name)
 {
-   printf("Chinook addRMessageHandler: '%s'", key);
    dispatchMap[[key]] <- function.name
     
 } # addServerMessageHandler
 #---------------------------------------------------------------------------------------------------
 getServerStatus <- function(ws, msg)
 {
-   print("=== Chinook, getServerStatus")
-
    payload <- list(currentTime=Sys.time(),
                    serverVersion=sessionInfo()$otherPkgs$Chinook$Version,
                    registeredHandlers=length(dispatchMap))
    
    return.msg <- list(cmd=msg$callback, status="success", callback="", payload=payload)
-   print(return.msg)
    ws$send(toJSON(return.msg))
 
 } # getServerStatus
