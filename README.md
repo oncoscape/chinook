@@ -12,7 +12,7 @@ The methods presented here can easily be applied in other fields.
 
 We hope to create a community of developers to contribute Chinook-compatible computational services,
 data providers, and interactive Javascript "widgets",  any of which can be combined to address
-a particular research program.  Simple, complete webapps wiht full source code is offered.  
+a particular research program.  Simple, complete webapps with full source code will be offered.  
 All of Oncoscape source code will be available, along with curated access to computational services 
 and Javascript widget libraries.
 
