@@ -10,11 +10,10 @@ Chinook was developed for the Oncoscape project,  which provides web-based explo
 for computational biology, bioinformatics, and solid tumor translational research [(see STTR)](http://www.sttrcancer.org).  
 The methods presented here can easily be applied in other fields.
 
-We hope to create a community of developers to contribute Chinook-compatible computational services,
-data providers, and interactive Javascript "widgets",  any of which can be combined to address
-a particular research program.  Simple, complete webapps with full source code will be offered.  
-All of Oncoscape source code will be available, along with curated access to computational services 
-and Javascript widget libraries.
+We hope to create a community of developers to contribute Chinook-compatible computational services, data providers, and
+interactive Javascript "widgets", any of which can be combined to address a particular research program.  Simple,
+complete webapps with full source code will be offered.  All of Oncoscape source code will be available, along with
+curated access to computational services and Javascript widget libraries.
 
 
  * [Quick start for programmers (a minimal demo)](https://github.com/oncoscape/chinook/wiki/Build-and-Run-the-Simplest-Chinook-Demo)
