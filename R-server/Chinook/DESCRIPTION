@@ -1,8 +1,8 @@
 Package: Chinook
 Type: Package
 Title: Chinook: a trading (pidgin) language for exploratory data analysis
-Version: 0.99.2
-Date: 2015-04-08
+Version: 0.99.3
+Date: 2015-04-09
 Author: Paul Shannon
 Maintainer:  <pshannon@fredhutch.org>
 Depends: R (>= 3.1.0), Rcpp (>= 0.11.5), jsonlite (>= 0.9.15), httpuv(>= 1.3.2)
